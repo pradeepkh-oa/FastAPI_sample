@@ -1,0 +1,37 @@
+
+LINEAGE_DATA_TABLE: itg-btdpmonitor-gbl-ww-dv.btdp_monitoranalysis.t_lineage_table
+
+
+GET_ALL_LINEAGE_DATA: SELECT
+                      workflow_dag_id,
+                      workflow_dag_type,
+                      src_tables,
+                      env,
+                      flow_id,
+                      domain
+                      FROM
+                      `itg-btdpmonitor-gbl-ww-dv.btdp_monitoranalysis.t_lineage_table`
+                      limit 10
+
+
+GET_DOMAIN_LINEAGE_DATA: SELECT
+                      workflow_dag_id,
+                      workflow_dag_type,
+                      src_tables,
+                      env,
+                      flow_id,
+                      domain
+                      FROM
+                      `itg-btdpmonitor-gbl-ww-dv.btdp_monitoranalysis.t_lineage_table`
+                      WHERE domain = @domain
+GET_TARGET_TABLE_LINEAGE_DATA: SELECT
+                      workflow_dag_id,
+                      workflow_dag_type,
+                      src_tables,
+                      env,
+                      flow_id,
+                      domain,
+                      trg_table
+                      FROM
+                      `itg-btdpmonitor-gbl-ww-dv.btdp_monitoranalysis.t_lineage_table`
+                      WHERE filter = @target_table
